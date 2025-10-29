@@ -8,10 +8,11 @@ Example: AI helped with file I/O error handling logic in save_character function
 """
 #==================================================================my code part 1==================================================================================
 #Took inspo from my favorite game (metaphor refantazio)
-   def create_character(name, character_class):
+
+def create_character(name, character_class):
     stats = calculate_stats(character_class, 1)
     if stats is None:
-        return None
+        return None  # Handle invalid class gracefully
 
     strength, magic, health = stats
 
