@@ -63,13 +63,8 @@ def create_character(name, character_class):
 
     # Return the three stats as a tuple
     return (strength, magic, health)
-
-    
-
-
-    
-    
-Calculates base stats based on class and level
+"""
+    Calculates base stats based on class and level
     Returns: tuple of (strength, magic, health)
     
     Design your own formulas! Ideas:
@@ -77,6 +72,7 @@ Calculates base stats based on class and level
     - Mages: Low strength, high magic, medium health  
     - Rogues: Medium strength, medium magic, low health
     - Clerics: Medium strength, high magic, high health
+"""
    # TODO: Implement this function
     # Return a tuple: (strength, magic, health)
     pass
