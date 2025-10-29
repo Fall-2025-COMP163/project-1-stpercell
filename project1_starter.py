@@ -24,32 +24,7 @@ Example: AI helped with file I/O error handling logic in save_character function
         "health": health,
         "gold": 100
     }
-
     return character
-
-
-   def create_character(name, character_class):
-    #Stats for level
-    stats = calculate_stats(character_class, 1)
-    # for non classes
-    if stats is None:
-        return None
-    # Break tuple into individual values(I need these comments)
-    strength, magic, health = stats
-    # Create/return dictionary of character info
-    character = {
-        "name": name,
-        "class": character_class,
-        "level": 1,
-        "strength": strength,
-        "magic": magic,
-        "health": health,
-        "gold": 100
-    }
-    return character
-# This will run immediately when the file is executed
-character = create_character("Aria", "Mage")
-print(character)
     """
     Creates a new character dictionary with calculated stats
     Returns: dictionary with keys: name, class, level, strength, magic, health, gold
