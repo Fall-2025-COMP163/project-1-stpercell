@@ -7,36 +7,47 @@ AI Usage: [Document any AI assistance used]
 Example: AI helped with file I/O error handling logic in save_character function
 """
 #==================================================================my code part 1==================================================================================
-    def calculate_stats(character_class):
-    character_class = character_class.lower()
 #Took inspo from my favorite game (metaphor refantazio)
-    if character_class == "mage":#spells
-        return {"strength": 5, "magic": 15,"agility": 3, "health": 80, "gold": 100}
-    elif character_class == "warrior":#basic all rounder
-        return {"strength": 12, "magic": 3,"agility": 8, "health": 120, "gold": 100}
-    elif character_class == "rogue":#Speed
-        return {"strength": 8, "magic": 5,"agility": 15, "health": 100, "gold": 100}
-    elif character_class == "brawler":#as the name entails
-        return {"strength": 18, "magic": 1,"agility": 5, "health": 150, "gold": 100}
-    elif character_class == "cleric":#healer class
-        return {"strength": 3, "magic": 12,"agility": 8, "health": 50, "gold": 100}
-    elif character_class == "saiyans":#secret dbz class
-        return {"strength": 9000, "magic": 20000,"agility": 9000, "health": 10000, "gold": 10000}#magic is ki and gold is zeni
-#all stat calcs with diff classes
+   def calculate_stats(character_class, level=1):
+    # Convert class name to lowercase so it's easier to compare
+    character_class = character_class.lower()
+    #base stats by class
+    if character_class == "mage":
+        strength, magic, health = 5, 15, 80
+    elif character_class == "warrior":
+        strength, magic, health = 12, 3, 120
+    elif character_class == "rogue":
+        strength, magic, health = 8, 5, 100
+    elif character_class == "brawler":
+        strength, magic, health = 18, 1, 150
+    elif character_class == "cleric":
+        strength, magic, health = 3, 12, 50
+    elif character_class == "saiyans":
+        strength, magic, health = 9000, 20000, 10000
+    # Each level adds +1 to every stat
+    strength += level - 1
+    magic += level - 1
+    health += level - 1
+   #returns as a tupple
+    return (strength, magic, health)
+
 def create_character(name, character_class):
-    stats = calculate_stats(character_class)
+    stats = calculate_stats(character_class, 1)
+    strength, magic, health = stats
     character = {
         "name": name,
         "class": character_class,
         "level": 1,
-        "strength": stats["strength"],
-        "magic": stats["magic"],
-        "agility": stats["agility"],
-        "health": stats["health"],
-        "gold": stats["gold"]
+        "strength": strength,
+        "magic": magic,
+        "health": health,
+        "gold": 100
     }
     return character
-character = create_character("Shikel", "saiyans")
+
+
+# This will run immediately when the file is executed
+character = create_character("Shikel", "Saiyans")
 print(character)
     """
     Creates a new character dictionary with calculated stats
@@ -50,25 +61,6 @@ print(character)
     # Remember to use calculate_stats() function for stat calculation
     pass
 #==================================================================my code part 2==================================================================================
-
-
-
-def calculate_stats(character_class):
-    character_class = character_class.lower()
-#Took inspo from my favorite game (metaphor refantazio)
-    if character_class == "mage":#spells
-        return {"strength": 5, "magic": 15,"agility": 3, "health": 80, "gold": 100}
-    elif character_class == "warrior":#basic all rounder
-        return {"strength": 12, "magic": 3,"agility": 8, "health": 120, "gold": 100}
-    elif character_class == "rogue":#Speed
-        return {"strength": 8, "magic": 5,"agility": 15, "health": 100, "gold": 100}
-    elif character_class == "brawler":#as the name entails
-        return {"strength": 18, "magic": 1,"agility": 5, "health": 150, "gold": 100}
-    elif character_class == "cleric":#healer class
-        return {"strength": 3, "magic": 12,"agility": 8, "health": 50, "gold": 100}
-    elif character_class == "saiyans":#secret dbz class
-        return {"strength": 9000, "magic": 20000,"agility": 9000, "health": 10000, "gold": 10000}#magic is ki and gold is zeni
-
     """
     Calculates base stats based on class and level
     Returns: tuple of (strength, magic, health)
