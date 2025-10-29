@@ -8,32 +8,7 @@ Example: AI helped with file I/O error handling logic in save_character function
 """
 #==================================================================my code part 1==================================================================================
 #Took inspo from my favorite game (metaphor refantazio)
-   def calculate_stats(character_class, level=1):
-    # Convert class name to lowercase so it's easier to compare
-    character_class = character_class.lower()
-    # change stats by clas
-    if character_class == "mage":
-        strength, magic, health = 5, 15, 80
-    elif character_class == "warrior":
-        strength, magic, health = 12, 3, 120
-    elif character_class == "rogue":
-        strength, magic, health = 8, 5, 100
-    elif character_class == "brawler":
-        strength, magic, health = 18, 1, 150
-    elif character_class == "cleric":
-        strength, magic, health = 3, 12, 50
-    elif character_class == "saiyans":
-        strength, magic, health = 9000, 20000, 10000
-    else:
-        return None  # if class doesn't match any above(duh)
-    # Each level adds +1 to every stat
-    strength += level - 1
-    magic += level - 1
-    health += level - 1
-    # Return the three stats as a tuple
-    return (strength, magic, health)
-  
-def create_character(name, character_class):
+   def create_character(name, character_class):
     #Stats for level
     stats = calculate_stats(character_class, 1)
     # for non classes
@@ -67,7 +42,32 @@ print(character)
     # Remember to use calculate_stats() function for stat calculation
     pass
 #==================================================================my code part 2==================================================================================
-    Calculates base stats based on class and level
+   def calculate_stats(character_class, level=1):
+    # Convert class name to lowercase so it's easier to compare
+    character_class = character_class.lower()
+    # change stats by clas
+    if character_class == "mage":
+        strength, magic, health = 5, 15, 80
+    elif character_class == "warrior":
+        strength, magic, health = 12, 3, 120
+    elif character_class == "rogue":
+        strength, magic, health = 8, 5, 100
+    elif character_class == "brawler":
+        strength, magic, health = 18, 1, 150
+    elif character_class == "cleric":
+        strength, magic, health = 3, 12, 50
+    elif character_class == "saiyans":
+        strength, magic, health = 9000, 20000, 10000
+    else:
+        return None  # if class doesn't match any above(duh)
+    # Each level adds +1 to every stat
+    strength += level - 1
+    magic += level - 1
+    health += level - 1
+    # Return the three stats as a tuple
+    return (strength, magic, health) 
+
+Calculates base stats based on class and level
     Returns: tuple of (strength, magic, health)
     
     Design your own formulas! Ideas:
