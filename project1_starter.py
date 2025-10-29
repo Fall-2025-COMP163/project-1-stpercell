@@ -11,7 +11,7 @@ Example: AI helped with file I/O error handling logic in save_character function
    def calculate_stats(character_class, level=1):
     # Convert class name to lowercase so it's easier to compare
     character_class = character_class.lower()
-    #base stats by class
+    # change stats by clas
     if character_class == "mage":
         strength, magic, health = 5, 15, 80
     elif character_class == "warrior":
@@ -24,16 +24,25 @@ Example: AI helped with file I/O error handling logic in save_character function
         strength, magic, health = 3, 12, 50
     elif character_class == "saiyans":
         strength, magic, health = 9000, 20000, 10000
+    else:
+        return None  # if class doesn't match any above(duh)
     # Each level adds +1 to every stat
     strength += level - 1
     magic += level - 1
     health += level - 1
-   #returns as a tupple
+    # Return the three stats as a tuple
     return (strength, magic, health)
 
+
 def create_character(name, character_class):
+    #Stats for level
     stats = calculate_stats(character_class, 1)
+    # for non classes
+    if stats is None:
+        return None
+    # Break tuple into individual values(I need these comments)
     strength, magic, health = stats
+    # Create/return dictionary of character info
     character = {
         "name": name,
         "class": character_class,
@@ -44,8 +53,6 @@ def create_character(name, character_class):
         "gold": 100
     }
     return character
-
-
 # This will run immediately when the file is executed
 character = create_character("Shikel", "Saiyans")
 print(character)
