@@ -36,7 +36,17 @@ def create_character(name, character_class):
     # Remember to use calculate_stats() function for stat calculation
     pass
 #==================================================================my code part 2==================================================================================
-  def calculate_stats(character_class, level=1):
+def calculate_stats(character_class, level=1):
+    """
+    Calculates base stats based on class and level
+    Returns: tuple of (strength, magic, health)
+    
+    Design your own formulas! Ideas:
+    - Warriors: High strength, low magic, high health
+    - Mages: Low strength, high magic, medium health  
+    - Rogues: Medium strength, medium magic, low health
+    - Clerics: Medium strength, high magic, high health
+    """
     # Convert class name to lowercase so it's easier to compare
     character_class = character_class.lower()
     
@@ -63,18 +73,6 @@ def create_character(name, character_class):
 
     # Return the three stats as a tuple
     return (strength, magic, health)
-"""
-    Calculates base stats based on class and level
-    Returns: tuple of (strength, magic, health)
-    
-    Design your own formulas! Ideas:
-    - Warriors: High strength, low magic, high health
-    - Mages: Low strength, high magic, medium health  
-    - Rogues: Medium strength, medium magic, low health
-    - Clerics: Medium strength, high magic, high health
-"""
-    # TODO: Implement this function
-    # Return a tuple: (strength, magic, health)
     pass
 
 def save_character(character, filename):
