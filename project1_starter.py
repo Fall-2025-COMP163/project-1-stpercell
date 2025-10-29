@@ -37,7 +37,7 @@ def create_character(name, character_class):
     pass
 #==================================================================my code part 2==================================================================================
    def calculate_stats(character_class, level=1):
-    # Convert class name to lowercase so it's easier to compare
+       # Convert class name to lowercase so it's easier to compare
     character_class = character_class.lower()
     # change stats by clas
     if character_class == "mage":
@@ -60,7 +60,7 @@ def create_character(name, character_class):
     health += level - 1
     # Return the three stats as a tuple
     return (strength, magic, health) 
-
+    
 Calculates base stats based on class and level
     Returns: tuple of (strength, magic, health)
     
