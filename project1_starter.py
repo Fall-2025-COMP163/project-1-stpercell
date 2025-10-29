@@ -36,10 +36,11 @@ def create_character(name, character_class):
     # Remember to use calculate_stats() function for stat calculation
     pass
 #==================================================================my code part 2==================================================================================
-   def calculate_stats(character_class, level=1):
-       # Convert class name to lowercase so it's easier to compare
+  def calculate_stats(character_class, level=1):
+    # Convert class name to lowercase so it's easier to compare
     character_class = character_class.lower()
-    # change stats by clas
+    
+    # Change stats based on class
     if character_class == "mage":
         strength, magic, health = 5, 15, 80
     elif character_class == "warrior":
@@ -53,13 +54,17 @@ def create_character(name, character_class):
     elif character_class == "saiyans":
         strength, magic, health = 9000, 20000, 10000
     else:
-        return None  # if class doesn't match any above(duh)
+        return None  # If class doesn't match any above
+    
     # Each level adds +1 to every stat
     strength += level - 1
     magic += level - 1
     health += level - 1
+
     # Return the three stats as a tuple
-    return (strength, magic, health) 
+    return (strength, magic, health)
+
+    
     
 Calculates base stats based on class and level
     Returns: tuple of (strength, magic, health)
