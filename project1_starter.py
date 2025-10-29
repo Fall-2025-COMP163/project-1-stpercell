@@ -65,6 +65,9 @@ def create_character(name, character_class):
     return (strength, magic, health)
 
     
+
+
+    
     
 Calculates base stats based on class and level
     Returns: tuple of (strength, magic, health)
