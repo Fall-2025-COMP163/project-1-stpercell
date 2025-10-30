@@ -76,6 +76,12 @@ def calculate_stats(character_class, level=1):
     pass
 
 def save_character(character, filename):
+    file = open(filename, "w") # opens a file where we can write and trunacate(override) wtvs in said file
+    for key, value in character.items(): # makes a list from key and values in dict made from create_character function
+        file.write(f"{key.capitalize()}: {value}\n") # for loop means "For each key value inside dict do the following
+    file.close() # file.write writes the key values in each line into file. adding new lines as the loop goes on.
+    return True
+#just copies everything into filename(or wtv you call it) 
     """
     Saves character to text file in specific format
     Returns: True if successful, False if error occurred
@@ -94,6 +100,21 @@ def save_character(character, filename):
     pass
 
 def load_character(filename):
+    file = open(filename, "r")
+    lines = file.readlines()#this whole section here just opens the file and reads it(r means read not write. w is write and trunacate if it exist)
+    file.close() # readlines reads every line and puts wtv it read into a list
+
+    character = {} # makes a empty dict. SO basically turns the first sections list into a dict
+    for line in lines: # goes line by line in said dict
+        if ": " in line: # this makes it so it only checks lines with : in it. Just to make sure its formatted correctly
+            key, value = line.strip().split(": ", 1) # the strip part removes spaces and newlines while split makes it so everything before : is they key and everything else the value
+            key = key.lower()
+            if value.isdigit():
+                value = int(value) #converts string to int
+            character[key] = value # saves key/value in dict
+# then all this loops until there isn't any more lines to be read from the fisrt section of the code
+    return character
+#this returns the dict so we can print it
     """
     Loads character from text file
     Returns: character dictionary if successful, None if file not found
