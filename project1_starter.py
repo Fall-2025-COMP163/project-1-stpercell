@@ -142,6 +142,14 @@ def load_character(filename):
     pass
 
 def display_character(character):
+    print("=== CHARACTER SHEET ===")
+    print(f"Name: {character['name']}")
+    print(f"Class: {character['class']}")
+    print(f"Level: {character['level']}")
+    print(f"Strength: {character['strength']}")
+    print(f"Magic: {character['magic']}")
+    print(f"Health: {character['health']}")
+    print(f"Gold: {character['gold']}")
     """
     Prints formatted character sheet
     Returns: None (prints to console)
