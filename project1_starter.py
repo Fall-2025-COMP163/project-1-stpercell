@@ -76,10 +76,17 @@ def calculate_stats(character_class, level=1):
     pass
 
 def save_character(character, filename):
-    file = open(filename, "w") # opens a file where we can write and trunacate(override) wtvs in said file
-    for key, value in character.items(): # makes a list from key and values in dict made from create_character function
-        file.write(f"{key.capitalize()}: {value}\n") # for loop means "For each key value inside dict do the following
-    file.close() # file.write writes the key values in each line into file. adding new lines as the loop goes on.
+    # Open the file for writing (creates or overwrites)
+    file = open(filename, "w")
+    # Write data in the exact required format
+    file.write(f"Character Name: {character['name']}\n")
+    file.write(f"Class: {character['class']}\n")
+    file.write(f"Level: {character['level']}\n")
+    file.write(f"Strength: {character['strength']}\n")
+    file.write(f"Magic: {character['magic']}\n")
+    file.write(f"Health: {character['health']}\n")
+    file.write(f"Gold: {character['gold']}\n")
+    file.close()
     return True
 #just copies everything into filename(or wtv you call it) 
     """
@@ -100,9 +107,17 @@ def save_character(character, filename):
     pass
 
 def load_character(filename):
+    # Step 1: open/close in "a" mode — creates file if missing
+    open(filename, "a").close()
+
+    # Step 2: now safely open for reading from start
     file = open(filename, "r")
-    lines = file.readlines()#this whole section here just opens the file and reads it(r means read not write. w is write and trunacate if it exist)
-    file.close() # readlines reads every line and puts wtv it read into a list
+    lines = file.readlines()
+    file.close()
+
+    # If file is empty, return None
+    if not lines:
+        return None
 
     character = {} # makes a empty dict. SO basically turns the first sections list into a dict
     for line in lines: # goes line by line in said dict
