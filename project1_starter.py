@@ -124,6 +124,9 @@ def load_character(filename):
         if ": " in line: # this makes it so it only checks lines with : in it. Just to make sure its formatted correctly
             key, value = line.strip().split(": ", 1) # the strip part removes spaces and newlines while split makes it so everything before : is they key and everything else the value
             key = key.lower()
+            # Convert "character name" → "name"
+            if key == "character name":
+                key = "name"
             if value.isdigit():
                 value = int(value) #converts string to int
             character[key] = value # saves key/value in dict
