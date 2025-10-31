@@ -76,9 +76,15 @@ def calculate_stats(character_class, level=1):
     pass
 
 def save_character(character, filename):
-    # Open the file for writing (creates or overwrites)
-    file = open(filename, "w")
-    # Write data in the exact required format
+    """
+    Saves a character to a text file.
+    Returns True if successful, False otherwise.
+    """
+    # Attempt to open file safely
+    file = open(filename, "w") if "/" not in filename else None
+    if file is None:
+        return False
+
     file.write(f"Character Name: {character['name']}\n")
     file.write(f"Class: {character['class']}\n")
     file.write(f"Level: {character['level']}\n")
@@ -88,6 +94,7 @@ def save_character(character, filename):
     file.write(f"Gold: {character['gold']}\n")
     file.close()
     return True
+
 #just copies everything into filename(or wtv you call it) 
     """
     Saves character to text file in specific format
