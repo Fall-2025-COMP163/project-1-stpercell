@@ -97,3 +97,12 @@ Modifying protected files will result in automatic academic integrity violation
 Implementation (70%): Function correctness, file operations, error handling
 
 Interview (30%): Code explanation and live coding challenge
+
+
+DOCUMENTATION
+From this coding project, I learned how to create and manage data using functions, dictionaries, and files in Python. Writing functions like calculate_stats() and create_character() helped me understand how to organize code and reuse logic instead of repeating it. I also learned how to save and load data from text files, which made me realize how file I/O works behind the scenes — opening, writing, reading, and closing files properly. Converting between strings and integers when loading data was a useful lesson in data types and error checking.
+
+The most challenging part was debugging the file handling and data conversion in the load_character() function. It took time to figure out how to split each line correctly and handle missing or incorrect formatting. Overall, this project improved my ability to structure programs, handle data safely, and think through how each part connects to the rest.
+
+A.I USAGE
+Mostly used a.i for formatting code and help with debugging. Majorly helped with the load function. Helped with understand files and what to use in said files.
