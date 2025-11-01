@@ -8,7 +8,7 @@ Example: AI helped with file I/O error handling logic in save_character function
 """
 #==================================================================my code part 1==================================================================================
 #Took inspo from my favorite game (metaphor refantazio)
-def create_character(name, character_class):
+def create_character(name, character_class): #Takes the tupple from calculate stats and turns it into a dictionary
     stats = calculate_stats(character_class, 1)
     if stats is None:
         return None  
@@ -36,7 +36,7 @@ def create_character(name, character_class):
     # Remember to use calculate_stats() function for stat calculation
     pass
 #==================================================================my code part 2==================================================================================
-def calculate_stats(character_class, level=1):
+def calculate_stats(character_class, level=1): #makes stats based of class and makes it into a tuple
     """
     Calculates base stats based on class and level
     Returns: tuple of (strength, magic, health)
@@ -48,7 +48,7 @@ def calculate_stats(character_class, level=1):
     - Clerics: Medium strength, high magic, high health
     """
     # Convert class name to lowercase so it's easier to compare
-    character_class = character_class.lower()
+    character_class = character_class.lower() #makes it so the class you choose isn't case sensitive
     
     # Change stats based on class
     if character_class == "mage":
@@ -61,13 +61,13 @@ def calculate_stats(character_class, level=1):
         strength, magic, health = 18, 1, 150
     elif character_class == "cleric":
         strength, magic, health = 3, 12, 50
-    elif character_class == "saiyans":
+    elif character_class == "saiyans": #extra class for fun
         strength, magic, health = 9000, 20000, 10000
     else:
         return None  # If class doesn't match any above
     
-    # Each level adds +1 to every stat
-    strength += level - 1
+    # Each level adds +1 to every stat(wasn't needed until later)
+    strength += level - 1 
     magic += level - 1
     health += level - 1
 
@@ -75,7 +75,7 @@ def calculate_stats(character_class, level=1):
     return (strength, magic, health)
     pass
 
-def save_character(character, filename):
+def save_character(character, filename): #saves the dictionary from create character as a txt file
     """
     Saves a character to a text file.
     Returns True if successful, False otherwise.
@@ -113,13 +113,13 @@ def save_character(character, filename):
     # Remember to handle file errors gracefully
     pass
 
-def load_character(filename):
+def load_character(filename): #loads said txt file when called upon
     # Step 1: open/close in "a" mode — creates file if missing
-    open(filename, "a").close()
+    open(filename, "a").close() #uses a so it can load a file which doesn't exist first for test cases
 
     # Step 2: now safely open for reading from start
-    file = open(filename, "r")
-    lines = file.readlines()
+    file = open(filename, "r") #then opens real file using r so it only reads and doesn't write
+    lines = file.readlines() #readlines so it reads every line in the txt file
     file.close()
 
     # If file is empty, return None
@@ -148,7 +148,7 @@ def load_character(filename):
     # Remember to handle file not found errors
     pass
 
-def display_character(character):
+def display_character(character): #displays all characters current info
     print("=== CHARACTER SHEET ===")
     print(f"Name: {character['name']}")
     print(f"Class: {character['class']}")
