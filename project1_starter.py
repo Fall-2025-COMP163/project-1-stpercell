@@ -14,7 +14,7 @@ def create_character(name, character_class): #Takes the tupple from calculate st
         return None  
     strength, magic, health = stats
     character = {
-        "name": name,
+        "name": name,              #mainly used a.i for formatting in this section up until load file function
         "class": character_class,
         "level": 1,
         "strength": strength,
@@ -23,7 +23,7 @@ def create_character(name, character_class): #Takes the tupple from calculate st
         "gold": 100
     }
     return character
- 
+  
     """
     Creates a new character dictionary with calculated stats
     Returns: dictionary with keys: name, class, level, strength, magic, health, gold
@@ -122,9 +122,9 @@ def load_character(filename): #loads said txt file when called upon
     lines = file.readlines() #readlines so it reads every line in the txt file
     file.close()
 
-    # If file is empty, return None
+    # If file is empty, return None 
     if not lines:
-        return None
+        return None   #Most a.i usage was used here on this function for understanding, debugging, and formatting
 
     character = {} # makes a empty dict. SO basically turns the first sections list into a dict
     for line in lines: # goes line by line in said dict
@@ -201,3 +201,5 @@ if __name__ == "__main__":
     # display_character(char)
     # save_character(char, "my_character.txt")
     # loaded = load_character("my_character.txt")
+#A.I USAGE Mostly used a.i for formatting code and help with debugging. 
+#Majorly helped with the load function. Helped with understand files and what to use in said files.
